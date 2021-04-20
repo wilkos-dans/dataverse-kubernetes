@@ -38,7 +38,7 @@ if `env | grep -Ee '^db_' 2>&1 > /dev/null`; then
       fi
   done
 else
-  echo "--- none found ---"
+  echo -n "--- none found ---"
 fi
 
 # Parse and configure authentication providers

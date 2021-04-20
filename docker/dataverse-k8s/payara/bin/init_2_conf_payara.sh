@@ -123,7 +123,9 @@ echo "--------------------------------------------------"
 echo "INFO: Symlinking and editing jHove configuration."
 ln -s ${HOME_DIR}/dvinstall/jhove.conf ${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}/config/jhove.conf
 ln -s ${HOME_DIR}/dvinstall/jhoveConfig.xsd ${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}/config/jhoveConfig.xsd
-sed -i ${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}/config/jhove.conf -e "s:/usr/local/glassfish4/glassfish/domains/domain1:${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}:g"
+sed -i ${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}/config/jhove.conf -e "s:/usr/local/payara5/glassfish/domains/domain1:${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}:g"
 
 # 6. Disable phone home. Always.
-echo "disable-phome-home" >> ${PREBOOT_COMMANDS}
+echo "INFO: Disable phone home..."
+rm ${PAYARA_DIR}/glassfish/modules/phonehome-bootstrap.jar
+# echo "disable-phone-home" >> ${PREBOOT_COMMANDS}
