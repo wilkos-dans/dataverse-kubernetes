@@ -17,12 +17,30 @@ spec:
     spec:
       containers:
         - name: bootstrap
-          image: iqss/dataverse-k8s
+          image: steinsteiny/dataverse:5.3
           command: ["scripts/bootstrap-job.sh"]
           envFrom:
             - configMapRef:
                 name: dataverse
           env:
+            - name: DATAVERSE_DB_HOST
+              value: postgresql
+            - name: DATAVERSE_DB_USER
+              value: dataverse
+            - name: DATAVERSE_DB_PASSWORD
+              value: changeme
+            - name: DATAVERSE_DB_NAME
+              value: dataverse
+            - name: POSTGRES_PASSWORD
+              value: changeme           
+            - name: POSTGRES_SERVER
+              value: postgresql
+
+            # - name: SOLR_LOCATION
+            #   value: solr:8983
+
+            - name: SOLR_SERVICE_HOST
+              value: solr:8983            
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:

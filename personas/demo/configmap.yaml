@@ -8,3 +8,5 @@ metadata:
     app.kubernetes.io/part-of: dataverse
 data:
   db_DoiProvider: FAKE
+  db_SystemEmail: "Dataverse-SSHOC <info@dataverse.cessda.eu>"
+  
