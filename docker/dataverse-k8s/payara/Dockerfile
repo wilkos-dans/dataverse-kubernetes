@@ -7,7 +7,7 @@
 FROM payara/server-full:5.2021.1-jdk11
 LABEL maintainer="FDM FZJ <forschungsdaten@fz-juelich.de>"
 
-ARG VERSION=5.3
+ARG VERSION=5.4.1
 ARG DOMAIN=domain1
 
 ENV DATA_DIR=/data\
@@ -18,7 +18,7 @@ ENV DATA_DIR=/data\
     DOMAIN_DIR=${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}\
     DATAVERSE_VERSION=${VERSION}\
     DATAVERSE_PKG=https://github.com/IQSS/dataverse/releases/download/v${VERSION}/dvinstall.zip\
-    PGDRIVER_PKG=https://jdbc.postgresql.org/download/postgresql-42.2.12.jar\
+    PGDRIVER_PKG=https://jdbc.postgresql.org/download/postgresql-42.2.19.jar\
     # Make heap dumps on OOM appear in DUMPS_DIR
     JVM_ARGS="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=\${ENV=DUMPS_DIR}"
 
