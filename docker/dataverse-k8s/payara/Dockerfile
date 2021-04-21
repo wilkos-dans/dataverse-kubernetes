@@ -11,7 +11,7 @@ ARG VERSION=5.4.1
 ARG DOMAIN=domain1
 
 ENV DATA_DIR=/data\
-    DOCROOT_DIR=/docroot\
+    DOCROOT_DIR=/opt/docroot\
     METADATA_DIR=/metadata\
     SECRETS_DIR=/secrets\
     DUMPS_DIR=/dumps\
@@ -44,7 +44,7 @@ RUN wget --no-verbose -O postgresql.jar ${PGDRIVER_PKG} && \
     mv postgresql.jar ${PAYARA_DIR}/glassfish/lib
 
 # Make docroot of Payara reside in higher level directory for easier targeting
-# Due to IQSS/dataverse-kubernetes#177: create the generated pathes so they are
+# Due to IQSS/dataverse-kubernetes#177: create the generated paths so they are
 # writeable by us. TBR with #178.
 RUN rm -rf ${DOMAIN_DIR}/docroot && \
     ln -s ${DOCROOT_DIR} ${DOMAIN_DIR}/docroot && \

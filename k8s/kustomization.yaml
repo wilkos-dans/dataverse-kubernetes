@@ -6,7 +6,7 @@ bases:
   - dataverse
 
 images:
-  - name: steinsteiny/dataverse:5.4.1
+  - name: steinsteiny/dataverse
     newTag: "5.4.1"
-  - name: iqss/solr-k8s
-    newTag: "5.4.1"
+  - name: steinsteiny/solr-k8s
+    newTag: "7-5.4.1"

@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: solr
-          image: steinsteiny/solr-k8s:8-5.4.1
+          image: steinsteiny/solr-k8s:7-5.4.1
           resources:
             requests:
               memory: "2Gi"
@@ -58,7 +58,7 @@ spec:
               path: /solr/collection1/admin/ping
               port: index
         - name: schema-sidecar
-          image: steinsteiny/solr-k8s:8-5.4.1
+          image: steinsteiny/solr-k8s:7-5.4.1
           command: ["/tini", "--", "/scripts/schema/sidecar.sh"]
           ports:
             - name: webhook
@@ -81,7 +81,7 @@ spec:
             - name: data
               mountPath: /data
         - name: schema-init
-          image: steinsteiny/solr-k8s:8-5.4.1
+          image: steinsteiny/solr-k8s:7-5.4.1
           command: ["/scripts/schema/init.sh"]
           volumeMounts:
             - name: schema

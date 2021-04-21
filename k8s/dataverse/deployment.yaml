@@ -56,9 +56,6 @@ spec:
             - name: SOLR_LOCATION
               value: solr:8983
 
-            - name: SOLR_SERVICE_HOST
-              value: solr:8983
-
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
@@ -75,7 +72,7 @@ spec:
             - name: files
               mountPath: /data
             - name: docroot
-              mountPath: /docroot
+              mountPath: /opt/docroot
             - name: heapdumps
               mountPath: /dumps
             - name: db-secret
@@ -94,12 +91,12 @@ spec:
       initContainers:
         - name: volume-mount-hack
           image: giantswarm/tiny-tools
-          command: ["sh", "-c", "chown -c 1000:1000 /data /docroot /uploads"]
+          command: ["sh", "-c", "chown -c 1000:1000 /data /opt/docroot /uploads"]
           volumeMounts:
             - name: files
               mountPath: /data
             - name: docroot
-              mountPath: /docroot
+              mountPath: /opt/docroot
             # This is here because of IQSS/dataverse-kubernetes#177. TBR for #178
             - name: primefaces-upload
               mountPath: /uploads

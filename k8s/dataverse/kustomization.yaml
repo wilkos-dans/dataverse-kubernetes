@@ -7,5 +7,5 @@ resources:
   - svc.yaml
 
 images:
-  - name: steinsteiny/dataverse:5.4.1
+  - name: steinsteiny/dataverse
     newTag: "5.4.1"

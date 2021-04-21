@@ -36,8 +36,6 @@ spec:
             - name: POSTGRES_SERVER
               value: postgresql
 
-            # - name: SOLR_LOCATION
-            #   value: solr:8983
 
             - name: SOLR_SERVICE_HOST
               value: solr:8983            
