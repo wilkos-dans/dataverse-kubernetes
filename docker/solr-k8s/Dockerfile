@@ -4,13 +4,14 @@
 # You may obtain a copy of the License at
 # http://www.apache.org/licenses/LICENSE-2.0
 
-FROM solr:7.7
+FROM solr:8.8.2
+# FROM solr:8.0
 
 LABEL maintainer="FDM FZJ <forschungsdaten@fz-juelich.de>"
 
 ARG WEBHOOK_VERSION=2.6.11
 ARG TINI_VERSION=v0.18.0
-ARG VERSION=4.20
+ARG VERSION=5.4.1
 ARG COLLECTION=collection1
 ENV SOLR_OPTS="-Dsolr.jetty.request.header.size=102400"\
     COLLECTION_DIR=/opt/solr/server/solr/${COLLECTION}\
@@ -28,7 +29,8 @@ RUN mkdir -p ${SCHEMA_DIR} ${SCRIPT_DIR} ${SCHEMA_SCRIPT_DIR} && \
 RUN wget --no-verbose -O /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini && \
     chmod +x /tini
 
-USER ${SOLR_USER}
+
+# USER ${SOLR_USER}
 
 # Dataverse uses a **hardcoded** core name "collection1", so we need to use it.
 # 1) Create core directory

@@ -7,5 +7,5 @@ resources:
   - svc.yaml
 
 images:
-  - name: iqss/dataverse-k8s
-    newTag: "4.20"
+  - name: steinsteiny/dataverse:5.4.1
+    newTag: "5.4.1"
