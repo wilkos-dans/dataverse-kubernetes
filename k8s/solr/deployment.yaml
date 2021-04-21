@@ -5,7 +5,7 @@ metadata:
   name: solr
   labels:
     app.kubernetes.io/name: solr
-    app.kubernetes.io/version: "4.20"
+    app.kubernetes.io/version: "5.3"
     app.kubernetes.io/component: searchindex
     app.kubernetes.io/part-of: dataverse
     app.kubernetes.io/managed-by: kubectl
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: solr
-          image: iqss/solr-k8s
+          image: steinsteiny/solr-k8s:7-5.3
           resources:
             requests:
               memory: "2Gi"
@@ -58,7 +58,7 @@ spec:
               path: /solr/collection1/admin/ping
               port: index
         - name: schema-sidecar
-          image: iqss/solr-k8s
+          image: steinsteiny/solr-k8s:7-5.3
           command: ["/tini", "--", "/scripts/schema/sidecar.sh"]
           ports:
             - name: webhook
@@ -81,7 +81,7 @@ spec:
             - name: data
               mountPath: /data
         - name: schema-init
-          image: iqss/solr-k8s
+          image: steinsteiny/solr-k8s:7-5.3
           command: ["/scripts/schema/init.sh"]
           volumeMounts:
             - name: schema

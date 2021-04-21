@@ -5,7 +5,7 @@ metadata:
   name: dataverse
   labels:
     app.kubernetes.io/name: dataverse
-    app.kubernetes.io/version: "4.20"
+    app.kubernetes.io/version: "5.3"
     app.kubernetes.io/component: appserver
     app.kubernetes.io/part-of: dataverse
     app.kubernetes.io/managed-by: kubectl
@@ -53,8 +53,8 @@ spec:
             - name: POSTGRES_SERVER
               value: postgresql
 
-            - name: SOLR_LOCATION
-              value: solr:8983
+            # - name: SOLR_LOCATION
+            #   value: solr:8983
 
             - name: SOLR_SERVICE_HOST
               value: solr:8983
