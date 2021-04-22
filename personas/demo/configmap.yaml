@@ -9,4 +9,11 @@ metadata:
 data:
   db_DoiProvider: FAKE
   db_SystemEmail: "Dataverse-SSHOC <info@dataverse.cessda.eu>"
+
+  ### CUSTOMIZATION
+  db_StatusMessageHeader: "This Dataverse instance is for testing only." 
+  db_StatusMessageText: "Any data or metadata added is subject to unforewarned destruction."
+  db_FooterCopyright: " - Social Sciences & Humanities Open Cloud (SSHOC)"
+  db_NavbarAboutUrl: "https://sshopencloud.eu"
+
   
